@@ -1,4 +1,7 @@
 class Api::BugReportsController < ApplicationController
+  include Authenticable
+
+  before_action :authenticate_with_token
   before_action :set_bug_report, only: %i[show update destroy]
 
   # GET /bug_reports
