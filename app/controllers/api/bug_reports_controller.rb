@@ -1,9 +1,9 @@
-class BugReportsController < ApplicationController
+class Api::BugReportsController < ApplicationController
   before_action :set_bug_report, only: %i[show update destroy]
 
   # GET /bug_reports
   def index
-    @bug_reports = BugReport.all
+    @bug_reports = BugReport.search(params[:term])
 
     render json: @bug_reports
   end
@@ -18,7 +18,7 @@ class BugReportsController < ApplicationController
     @bug_report = BugReport.new(bug_report_params)
 
     if @bug_report.save
-      render json: @bug_report, status: :created, location: @bug_report
+      render json: @bug_report, status: :created, location: api_bug_report_path(@bug_report)
     else
       render json: @bug_report.errors, status: :unprocessable_entity
     end
