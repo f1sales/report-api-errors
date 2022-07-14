@@ -53,3 +53,7 @@ class Api::BugReportsController < ApplicationController
     params.require(:bug_report).permit(:robot, :callback, :status, :description, :datetime)
   end
 end
+
+# 2022-07-14 10:27:07 -0300 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
+
+# 2022-07-14 11:28:14 -0300 HTTP parse error, malformed request: #<Puma::HttpParserError: Invalid HTTP format, parsing fails. Are you trying to open an SSL connection to a non-SSL Puma?>
